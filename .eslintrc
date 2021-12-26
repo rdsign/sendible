@@ -24,15 +24,8 @@
     },
     "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
     "rules": {
-        // "@typescript-eslint/explicit-module-boundary-types": "off",
-        // "@typescript-eslint/no-empty-function": "off",
-        // "@typescript-eslint/no-explicit-any": "off",
-        // "@typescript-eslint/no-non-null-assertion": "off",
-        // "@typescript-eslint/no-shadow": "error",
-        // "@typescript-eslint/no-use-before-define": "error",
         "@typescript-eslint/no-empty-interface": "off",
         "@typescript-eslint/no-var-requires": "off",
-        // "dot-notation": "off",
         "global-require": "off",
         "import/extensions": [
             "error",
@@ -43,38 +36,19 @@
             }
         ],
         "import/no-dynamic-require": "off",
-        // "import/no-extraneous-dependencies": "warn",
+        "no-unused-expressions": "off",
         "import/prefer-default-export": "off",
-        // "lines-between-class-members": "off",
-        // "max-len": [
-        //     "error",
-        //     {
-        //         "code": 120
-        //     }
-        // ],
-        // "no-debugger": "warn",
-        // "no-shadow": "off",
         "no-use-before-define": "off",
-        // "prefer-promise-reject-errors": "off",
-        // "prettier/prettier": [
-        //     "warn",
-        //     {
-        //         "endOfLine": "auto"
-        //     }
-        // ],
-        // "react/jsx-fragments": "off",
         "react/jsx-filename-extension": [
             "warn",
             {
                 "extensions": [".tsx"]
             }
         ],
-        // "react/jsx-handler-names": "off",
         "react/jsx-props-no-spreading": "off",
         "react/no-unknown-property": "off",
         "react/no-unused-prop-types": "off",
         "react/react-in-jsx-scope": "off",
         "react/require-default-props": "off"
-        // "react-hooks/rules-of-hooks": "error"
     }
 }

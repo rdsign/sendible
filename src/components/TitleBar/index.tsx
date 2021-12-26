@@ -3,12 +3,13 @@ import { Button } from 'components';
 import { Container } from './index.styles';
 
 interface TitleBarProps {
-    strongTitle: string;
     italicTitle: string;
+    strongTitle: string;
+    compose: () => void;
 }
 
 export const TitleBar: FC<TitleBarProps> = (props) => {
-    const { italicTitle, strongTitle } = props;
+    const { compose, italicTitle, strongTitle } = props;
 
     return (
         <Container>
@@ -21,7 +22,7 @@ export const TitleBar: FC<TitleBarProps> = (props) => {
                 color="white"
                 icon="compose"
                 label="COMPOSE"
-                click={() => console.log('new post')}
+                click={() => compose()}
             />
         </Container>
     );

@@ -70,6 +70,7 @@ export default createGlobalStyle`
         }
 
         input,
+        textarea,
         button {
             background: transparent;
             font-family: 'IBM Plex Sans', sans-serif;
@@ -142,21 +143,21 @@ export default createGlobalStyle`
         /* uhd */
         @media all and (${uhd.min}) {
             html {
-                font-size: calc(((1vw + 1vw) / 7) + 12px);
+                font-size: calc(((1vw + 1vw) / 10) + 10px);
             }
         }
 
         /* qhd */
         @media all and (${qhd.min}) and (${qhd.max}) {
             html {
-                font-size: calc(((1vw + 1vw) / 10) + 10px);
+                font-size: calc(((1vw + 1vw) / 13) + 9px);
             }
         }
 
         /* desktop */
         @media all and (${desktop.min}) and (${desktop.max}) {
             html {
-                font-size: calc(((1vw + 1vw) / 14) + 8px);
+                font-size: calc(((1vw + 1vw) / 14) + 7px);
             }
         }
 
