@@ -1,19 +1,15 @@
 export const theme = {
     breakpoints: {
-        smallDevices: {
+        smDevices: {
             min: 'min-width: 260px',
             max: 'max-width: 767px',
         },
-        mediumDevices: {
+        mdDevices: {
             min: 'min-width: 768px',
             max: 'max-width: 1024px',
         },
         laptops: {
             min: 'min-width: 1025px',
-            max: 'max-width: 1280px',
-        },
-        smallDesktop: {
-            min: 'min-width: 1281px',
             max: 'max-width: 1440px',
         },
         desktop: {
@@ -35,6 +31,8 @@ export const theme = {
         gray100: '#f4f4f4',
         primary400: '#4d36ff',
         secondary400: '#ff6153',
+        transparent: 'transparent',
+        white: '#ffffff',
         blackOverlay: 'rgba(32, 30, 36, 0.9)',
         redGradient: 'linear-gradient(180deg, rgba(255, 97, 83, 0.3) 0%, #FF6153 100%);',
     },
@@ -47,6 +45,10 @@ export const theme = {
     },
     spacings: {
         mobile: '2rem',
+    },
+    views: {
+        desktop: '70%',
+        mobile: '100%',
     },
     zIndexes: {
         bellow: -1,

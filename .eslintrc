@@ -33,7 +33,7 @@
         "@typescript-eslint/no-empty-interface": "off",
         "@typescript-eslint/no-var-requires": "off",
         // "dot-notation": "off",
-        // "global-require": "off",
+        "global-require": "off",
         "import/extensions": [
             "error",
             "ignorePackages",
@@ -42,6 +42,7 @@
                 "tsx": "never"
             }
         ],
+        "import/no-dynamic-require": "off",
         // "import/no-extraneous-dependencies": "warn",
         "import/prefer-default-export": "off",
         // "lines-between-class-members": "off",
@@ -69,9 +70,11 @@
             }
         ],
         // "react/jsx-handler-names": "off",
-        // "react/jsx-props-no-spreading": "off",
-        // "react/prop-types": "off",
-        "react/react-in-jsx-scope": "off"
+        "react/jsx-props-no-spreading": "off",
+        "react/no-unknown-property": "off",
+        "react/no-unused-prop-types": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/require-default-props": "off"
         // "react-hooks/rules-of-hooks": "error"
     }
 }

@@ -69,8 +69,27 @@ module.exports = (env) => {
                     use: ['style-loader', 'css-loader', 'sass-loader'],
                 },
                 {
-                    test: /\.png|svg|jpg|gif$/,
-                    use: ['file-loader'],
+                    test: /\.png|jpg|gif$/,
+                    use: [
+                        {
+                            loader: 'file-loader',
+                            options: {
+                                name: '[path][name].[ext]',
+                            },
+                        },
+                    ],
+                },
+                {
+                    test: /\.svg$/i,
+                    issuer: /\.[jt]sx?$/,
+                    use: [
+                        {
+                            loader: '@svgr/webpack',
+                            options: {
+                                name: '[path][name].[ext]',
+                            },
+                        },
+                    ],
                 },
             ],
         },

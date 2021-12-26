@@ -1,8 +1,13 @@
 import { FC, ReactNode } from 'react';
-import { Container } from './index.styles';
+import { Header } from 'components';
 
 interface DefaultProps {
     children: ReactNode;
 }
 
-export const Default: FC<DefaultProps> = ({ children }) => <Container>{children}</Container>;
+export const Default: FC<DefaultProps> = ({ children }) => (
+    <>
+        <Header />
+        <main>{children}</main>
+    </>
+);

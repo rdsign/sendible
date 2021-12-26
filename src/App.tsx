@@ -1,14 +1,17 @@
 import { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
+import { Default } from 'layouts';
 import { Home } from 'pages';
 import GlobalStyle from 'styles/GlobalStyle';
 import { theme } from 'styles/theme';
-import 'styles/styles.scss';
+import 'styles/_fonts.scss';
 
 const App: FC = () => (
     <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Home />
+        <Default>
+            <Home />
+        </Default>
     </ThemeProvider>
 );
 
