@@ -10,6 +10,7 @@ This is an assessment project for Sendible.
 
 [https://www.figma.com/file/KYlOWJhTJBZuklsd8qTBnh/SENDIBLE?node-id=1%3A2](https://www.figma.com/file/KYlOWJhTJBZuklsd8qTBnh/SENDIBLE?node-id=1%3A2)
 <br>
+<br>
 
 ## :rocket: Features
 
@@ -37,6 +38,8 @@ This is an assessment project for Sendible.
 ##### Tests :fire:
 
 -   coverage
+    <br>
+    <br>
 
 ## :computer: Dependencies
 
@@ -44,6 +47,7 @@ This is an assessment project for Sendible.
 -   Nodejs 12+
 -   Yarn 1.22.10+
 
+<br>
 <br>
 
 ## :clipboard: Commands
