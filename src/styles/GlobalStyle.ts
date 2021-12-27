@@ -5,7 +5,6 @@ export default createGlobalStyle`
         theme: {
             breakpoints: { smDevices, mdDevices, laptops, desktop, qhd, uhd },
             colors,
-            spacings,
             views,
         },
     }) => css`
@@ -63,6 +62,10 @@ export default createGlobalStyle`
             margin: 0;
             padding: 0;
             text-decoration: none;
+        }
+
+        h1 {
+            line-height: 1em;
         }
 
         i {
@@ -178,7 +181,7 @@ export default createGlobalStyle`
         /* small devices */
         @media all and (${smDevices.min}) and (${smDevices.max}) {
             html {
-                font-size: calc(((1vw + 1vw) / 5) + 6px);
+                font-size: calc(((1vw + 1vw) / 4) + 6px);
             }
         }
     `}

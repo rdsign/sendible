@@ -17,16 +17,16 @@ export const Container = styled.button<ButtonProps>`
         padding: 1.4rem 2.6rem;
         transition: all 1s ${motions.cubic};
 
-        &:hover {
-            transform: scale(1.1);
-        }
-
         svg {
             fill: ${colors[color]};
             height: auto;
             margin-right: ${label && '1rem'};
             opacity: ${label ? 0.5 : 1};
             width: 1.8rem;
+        }
+
+        &:hover {
+            transform: scale(1.1);
         }
     `}
 `;

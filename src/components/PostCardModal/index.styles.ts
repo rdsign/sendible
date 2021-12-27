@@ -6,7 +6,7 @@ interface ContainerProps {
 }
 
 export const Container = styled.div<ContainerProps>`
-    ${({ theme: { colors, motions, shadows, zIndexes }, isVisible }) => css`
+    ${({ theme: { motions, zIndexes }, isVisible }) => css`
         align-items: center;
         backdrop-filter: blur(3rem);
         display: flex;
@@ -29,7 +29,12 @@ export const Container = styled.div<ContainerProps>`
 `;
 
 export const Content = styled.div`
-    ${({ theme: { colors, motions, shadows } }) => css`
+    ${({
+        theme: {
+            breakpoints: { smDevices },
+            colors,
+        },
+    }) => css`
         background: ${colors.white};
         border-radius: 0.8rem;
         display: flex;
@@ -37,11 +42,22 @@ export const Content = styled.div`
         padding: 6rem 6rem 4rem;
         position: relative;
         width: 100%;
+
+        @media all and (${smDevices.min}) and (${smDevices.max}) {
+            margin: 0;
+            min-width: 100vw;
+            padding: 3rem 0 0;
+        }
     `}
 `;
 
 export const Editor = styled.div`
-    ${({ theme: { colors, motions, shadows } }) => css`
+    ${({
+        theme: {
+            breakpoints: { smDevices, mdDevices },
+            colors,
+        },
+    }) => css`
         width: 94%;
 
         textarea {
@@ -58,11 +74,33 @@ export const Editor = styled.div`
                 color: ${colors.gray200};
             }
         }
+
+        @media all and (${smDevices.min}) and (${smDevices.max}) {
+            margin: 0 auto;
+            width: 85%;
+
+            textarea {
+                font-size: 1.8rem;
+                height: 25rem;
+            }
+        }
+
+        @media all and (${mdDevices.min}) and (${mdDevices.max}) {
+            width: 90%;
+
+            textarea {
+                height: 21rem;
+            }
+        }
     `}
 `;
 
 export const ImageHolder = styled.div`
-    ${({ theme: { colors, motions, shadows } }) => css`
+    ${({
+        theme: {
+            breakpoints: { smDevices },
+        },
+    }) => css`
         border-radius: 0.8rem;
         height: 15rem;
         overflow: hidden;
@@ -73,36 +111,86 @@ export const ImageHolder = styled.div`
             object-fit: cover;
             width: 100%;
         }
+
+        @media all and (${smDevices.min}) and (${smDevices.max}) {
+            height: 16vh;
+            width: 100%;
+        }
     `}
 `;
 
 export const Divider = styled.div`
-    ${({ theme: { colors, motions, shadows } }) => css`
+    ${({
+        theme: {
+            breakpoints: { smDevices },
+            colors,
+        },
+    }) => css`
         background: ${colors.gray100};
         height: 1px;
         margin: 6rem 0 4rem;
         margin-left: -6rem;
         width: calc(100% + 12rem);
+
+        @media all and (${smDevices.min}) and (${smDevices.max}) {
+            margin-bottom: 3rem;
+            margin-top: 3rem;
+        }
     `}
 `;
 
 export const Actions = styled.div`
-    ${({ theme: { colors, motions, shadows } }) => css`
+    ${({
+        theme: {
+            breakpoints: { smDevices },
+        },
+    }) => css`
         align-items: center;
         display: flex;
         justify-content: space-between;
+
+        @media all and (${smDevices.min}) and (${smDevices.max}) {
+            bottom: 0;
+            flex-direction: column;
+            left: 0;
+            width: 100%;
+
+            button {
+                border-radius: 0;
+                font-size: 2rem;
+                justify-content: center;
+                margin-top: 2rem;
+                padding: 3rem 0;
+                width: 100%;
+            }
+        }
     `}
 `;
 
 export const Schedule = styled.div`
-    ${({ theme: { colors, motions, shadows } }) => css`
+    ${({
+        theme: {
+            breakpoints: { smDevices },
+        },
+    }) => css`
         align-items: center;
         display: flex;
+
+        @media all and (${smDevices.min}) and (${smDevices.max}) {
+            justify-content: space-between;
+            margin: 0 auto;
+            width: 85%;
+        }
     `}
 `;
 
 export const ScheduleItem = styled.div`
-    ${({ theme: { colors, motions, shadows } }) => css`
+    ${({
+        theme: {
+            breakpoints: { smDevices },
+            colors,
+        },
+    }) => css`
         align-items: center;
         display: flex;
         margin-right: 6rem;
@@ -120,39 +208,66 @@ export const ScheduleItem = styled.div`
             text-decoration: underline;
             width: 10rem;
         }
-    `}
-`;
 
-export const InputWrapper = styled.div`
-    ${({ theme: { colors, motions, shadows } }) => css`
-        cursor: pointer;
-        overflow: hidden;
-        position: relative;
+        @media all and (${smDevices.min}) and (${smDevices.max}) {
+            margin-right: 0;
 
-        input[type='file'] {
-            cursor: pointer;
-            height: 100%;
-            left: 0;
-            margin: 0;
-            opacity: 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
+            input {
+                font-size: 1.8rem;
+            }
+
+            #date {
+                width: 11.2rem;
+            }
+
+            #time {
+                width: 5.2rem;
+            }
         }
     `}
 `;
 
+export const InputWrapper = styled.div`
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+
+    input[type='file'] {
+        cursor: pointer;
+        height: 100%;
+        left: 0;
+        margin: 0;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+`;
+
 export const CloseButton = styled(Button)`
-    ${({ theme: { colors, motions, shadows } }) => css`
+    ${({
+        theme: {
+            breakpoints: { smDevices },
+        },
+    }) => css`
         padding: 3rem;
         position: absolute;
         right: 3rem;
         top: 3rem;
+
+        @media all and (${smDevices.min}) and (${smDevices.max}) {
+            right: 0;
+            top: -5.5rem;
+
+            svg {
+                fill: white;
+            }
+        }
     `}
 `;
 
 export const Overlay = styled.div`
-    ${({ theme: { colors, motions, shadows, zIndexes } }) => css`
+    ${({ theme: { colors, zIndexes } }) => css`
         background: ${colors.gray800};
         cursor: pointer;
         height: 100%;

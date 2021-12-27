@@ -40,7 +40,7 @@ export const theme = {
         cubic: 'cubic-bezier(0.23, 1, 0.32, 1)',
     },
     shadows: {
-        small: '0 0.4rem 1.2rem rgba(0, 0, 0, 0.07)',
+        small: '0 0.8rem 2.4rem rgba(0, 0, 0, 0.07)',
         large: '0 1.6rem 4.8rem rgba(0, 0, 0, 0.07)',
     },
     spacings: {
@@ -48,7 +48,7 @@ export const theme = {
     },
     views: {
         desktop: '70%',
-        mobile: '90%',
+        mobile: '85%',
     },
     zIndexes: {
         bellow: -1,

@@ -93,6 +93,7 @@ export const PostCardModal: FC<PostCardModalProps> = (props) => {
                         <ScheduleItem>
                             <Icon icon="calendar" />
                             <Input
+                                id="date"
                                 change={(v) => setNewDate(v)}
                                 initialValue={newDate}
                                 mask="date"
@@ -103,6 +104,7 @@ export const PostCardModal: FC<PostCardModalProps> = (props) => {
                         <ScheduleItem>
                             <Icon icon="clock" />
                             <Input
+                                id="time"
                                 change={(v) => setNewTime(v)}
                                 initialValue={newTime}
                                 mask="time"

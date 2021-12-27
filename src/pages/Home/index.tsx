@@ -1,9 +1,10 @@
 import { FC, useEffect, useState } from 'react';
 import { Feedback, PostCard, PostCardModal, TitleBar } from 'components';
 import { cards, generateId, mockupImage } from 'utils';
-import { PostCardList, Section } from './index.styles';
+import { FixedButton, PostCardList, Section } from './index.styles';
 
 export const Home: FC = () => {
+    const [showCompose, setShowCompose] = useState<boolean>(false);
     const [postCards, setPostCarts] = useState<PostProps[]>(cards);
     const [currentCard, setCurrentCard] = useState<PostProps | null>(null);
     const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
@@ -13,11 +14,23 @@ export const Home: FC = () => {
     date.setHours(date.getHours() + 24);
 
     useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    useEffect(() => {
         errors.length > 0 &&
             setTimeout(() => {
                 setErrors([]);
             }, 8000);
     }, [errors]);
+
+    const handleScroll = (e: any) => {
+        const element = e.target.scrollingElement;
+        const screenHeight = e.target.scrollingElement.clientHeight;
+        const top = element.scrollTop;
+        top > screenHeight ? setShowCompose(true) : setShowCompose(false);
+    };
 
     const handleClose = () => {
         setCurrentCard(null);
@@ -71,9 +84,7 @@ export const Home: FC = () => {
     return (
         <Section className="wrapper">
             <TitleBar
-                compose={() => {
-                    setIsModalVisible(true);
-                }}
+                compose={() => setIsModalVisible(true)}
                 italicTitle="posts"
                 strongTitle="Scheduled"
             />
@@ -90,6 +101,14 @@ export const Home: FC = () => {
                 save={(post: PostProps) => handleSave(post)}
             />
             <Feedback messages={errors} />
+            <FixedButton
+                backgroundColor="primary400"
+                color="white"
+                icon="compose"
+                label="COMPOSE"
+                isVisible={showCompose}
+                click={() => setIsModalVisible(true)}
+            />
         </Section>
     );
 };

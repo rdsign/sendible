@@ -5,7 +5,7 @@ interface Props {
 }
 
 export const Container = styled.div<Props>`
-    ${({ theme: { colors, motions, shadows, zIndexes }, isVisible }) => css`
+    ${({ theme: { colors, motions, zIndexes }, isVisible }) => css`
         background: ${colors.secondary400};
         border-radius: 0.8rem;
         color: ${colors.white};

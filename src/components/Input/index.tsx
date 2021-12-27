@@ -1,7 +1,8 @@
 import { FC, ChangeEvent, useEffect, useRef } from 'react';
-import { date, time } from 'utils/masks';
+import { date, time } from 'utils';
 
 interface InputProps {
+    id: string;
     initialValue?: string;
     mask?: 'date' | 'time';
     maxLength?: number;
@@ -10,7 +11,7 @@ interface InputProps {
 }
 
 export const Input: FC<InputProps> = (props) => {
-    const { initialValue, mask, maxLength, placeholder, change } = props;
+    const { id, initialValue, mask, maxLength, placeholder, change } = props;
     const masks = { date, time };
 
     const ref = useRef<any>(null);
@@ -30,6 +31,7 @@ export const Input: FC<InputProps> = (props) => {
 
     return (
         <input
+            id={id}
             maxLength={maxLength}
             placeholder={placeholder}
             ref={ref}

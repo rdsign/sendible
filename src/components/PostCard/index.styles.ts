@@ -1,7 +1,13 @@
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
-    ${({ theme: { colors, motions, shadows } }) => css`
+    ${({
+        theme: {
+            breakpoints: { smDevices, mdDevices },
+            colors,
+            shadows,
+        },
+    }) => css`
         background: ${colors.white};
         border-radius: 0.8rem;
         box-shadow: ${shadows.large};
@@ -25,52 +31,56 @@ export const Container = styled.div`
                 opacity: 1;
             }
         }
+
+        @media all and (${smDevices.min}) and (${smDevices.max}) {
+            box-shadow: ${shadows.small};
+            width: 100%;
+        }
+
+        @media all and (${mdDevices.min}) and (${mdDevices.max}) {
+            box-shadow: ${shadows.small};
+            width: 47.5%;
+        }
     `}
 `;
 
 export const Content = styled.div`
-    ${({ theme: { colors, motions, shadows } }) => css`
-        display: flex;
-        flex-direction: column;
-        flex: 9;
-        justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    flex: 9;
+    justify-content: space-between;
 
-        p {
-            display: -webkit-box;
-            font-size: 1.6rem;
-            line-height: 1.5em;
-            overflow: hidden;
-            -webkit-line-clamp: 7;
-            -webkit-box-orient: vertical;
-        }
-    `}
+    p {
+        display: -webkit-box;
+        font-size: 1.6rem;
+        line-height: 1.5em;
+        overflow: hidden;
+        -webkit-line-clamp: 7;
+        -webkit-box-orient: vertical;
+    }
 `;
 
 export const ImageHolder = styled.div`
-    ${({ theme: { colors, motions, shadows } }) => css`
-        border-radius: 0.8rem;
-        height: 12rem;
-        overflow: hidden;
-        width: 100%;
+    border-radius: 0.8rem;
+    height: 12rem;
+    overflow: hidden;
+    width: 100%;
 
-        img {
-            height: 100%;
-            object-fit: cover;
-            width: 100%;
-        }
-    `}
+    img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+    }
 `;
 
 export const Schedule = styled.div`
-    ${({ theme: { colors, motions, shadows } }) => css`
-        align-items: flex-end;
-        display: flex;
-        flex: 1;
-    `}
+    align-items: flex-end;
+    display: flex;
+    flex: 1;
 `;
 
 export const ScheduleItem = styled.div`
-    ${({ theme: { colors, motions, shadows } }) => css`
+    ${({ theme: { colors } }) => css`
         align-items: center;
         display: flex;
         margin-right: 3rem;
@@ -92,7 +102,7 @@ export const ScheduleItem = styled.div`
 `;
 
 export const Actions = styled.div`
-    ${({ theme: { colors, motions, shadows } }) => css`
+    ${({ theme: { motions } }) => css`
         height: 100%;
         left: 0;
         position: absolute;
@@ -103,7 +113,7 @@ export const Actions = styled.div`
 `;
 
 export const Row = styled.div`
-    ${({ theme: { colors, motions, shadows, zIndexes } }) => css`
+    ${({ theme: { colors, zIndexes } }) => css`
         align-items: center;
         background: ${colors.secondary400};
         bottom: 0;
@@ -135,7 +145,7 @@ export const Row = styled.div`
 `;
 
 export const Bg = styled.div`
-    ${({ theme: { colors, motions, shadows } }) => css`
+    ${({ theme: { colors, motions } }) => css`
         background: ${colors.redGradient};
         top: 0;
         height: 100%;
