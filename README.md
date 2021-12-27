@@ -11,8 +11,6 @@ This is an assessment project for Sendible.
 [https://www.figma.com/file/KYlOWJhTJBZuklsd8qTBnh/SENDIBLE?node-id=1%3A2](https://www.figma.com/file/KYlOWJhTJBZuklsd8qTBnh/SENDIBLE?node-id=1%3A2)
 <br>
 
----
-
 ## :rocket: Features
 
 ##### Styled-components + Typescript :heart:
@@ -40,8 +38,6 @@ This is an assessment project for Sendible.
 
 -   coverage
 
----
-
 ## :computer: Dependencies
 
 -   npm 7.6.2+
@@ -49,8 +45,6 @@ This is an assessment project for Sendible.
 -   Yarn 1.22.10+
 
 <br>
-
----
 
 ## :clipboard: Commands
 
