@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import moment from 'moment';
-import { convertBase64 } from 'utils';
+import { convertBase64, validateDate } from 'utils';
 import { Button, Icon, Input } from 'components';
 import {
     Actions,
@@ -39,11 +39,13 @@ export const PostCardModal: FC<PostCardModalProps> = (props) => {
 
     const handleSave = () => {
         const errors = [];
+
         if (newMessage.length < 10) errors.push('The message must contain 10 characters or more.');
         if (!moment(newDate, 'DD/MM/YYYY', true).isValid())
             errors.push('Date is incorrect. E.g.: 01/01/2022');
         if (!moment(newTime, 'HH:mm', true).isValid())
             errors.push('Time is incorrect. E.g.: 10:20');
+        if (!validateDate(newDate, newTime)) errors.push('Date in past. Choose a future date.');
         errors.length > 0
             ? error(errors)
             : save({

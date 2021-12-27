@@ -17,6 +17,6 @@ interface PostProps {
 }
 
 interface PostCardProps extends PostProps {
-    edit: (id: number) => void;
-    del: (id: number) => void;
+    edit: (id: string) => void;
+    del: (id: string) => void;
 }
