@@ -20,37 +20,31 @@ This is an assessment project for Sendible.
 -   Syntax highlight and autofill
 -   Styled.d.ts
 -   Theme
-
-<br>
+    <br>
 
 ##### Responsity + dynamic sizing :muscle:
 
 -   calc sizes
 -   1.6rem acts like 16px on figma for FHD resolution
-
-<br>
+    <br>
 
 ##### Image upload :file_folder:
 
 -   image
-
-<br>
+    <br>
 
 ##### Post validations :warning:
 
 -   for new posts default date is set to next day, 12:00.
 -   validations
 -   input masks
-
-<br>
+    <br>
 
 ##### Tests :fire:
 
 -   coverage
-
-<br>
-<br>
-<br>
+    <br>
+    <br>
 
 ## :computer: Dependencies
 
