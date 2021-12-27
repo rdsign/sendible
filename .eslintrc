@@ -38,6 +38,7 @@
         "import/no-dynamic-require": "off",
         "no-unused-expressions": "off",
         "import/prefer-default-export": "off",
+        "no-extend-native": "off",
         "no-use-before-define": "off",
         "react/jsx-filename-extension": [
             "warn",

@@ -1,5 +1,7 @@
 import { FC, useEffect, useState } from 'react';
-import { Button, Icon } from 'components';
+import moment from 'moment';
+import { convertBase64 } from 'utils';
+import { Button, Icon, Input } from 'components';
 import {
     Actions,
     CloseButton,
@@ -8,26 +10,23 @@ import {
     Divider,
     Editor,
     ImageHolder,
+    InputWrapper,
     Overlay,
     Schedule,
     ScheduleItem,
 } from './index.styles';
 
-interface PostCardModalProps {
-    date: string;
-    id: number;
-    imageUrl: string | null;
+interface PostCardModalProps extends PostProps {
     isVisible: boolean;
-    message: string;
-    time: string;
     close: () => void;
-    save: () => void;
+    save: (post: PostProps) => void;
+    error: (errors: string[]) => void;
 }
 
 export const PostCardModal: FC<PostCardModalProps> = (props) => {
-    const { date, id, imageUrl, isVisible, message, time, close, save } = props;
+    const { date, id, imageUrl, isVisible, message, time, close, error, save } = props;
     const [newDate, setNewDate] = useState<string>(date);
-    const [newImageUrl, setNewImageUrl] = useState<string | null>(imageUrl);
+    const [newImageUrl, setNewImageUrl] = useState<string>(imageUrl);
     const [newMessage, setNewMessage] = useState<string>(message);
     const [newTime, setNewTime] = useState<string>(time);
 
@@ -37,6 +36,30 @@ export const PostCardModal: FC<PostCardModalProps> = (props) => {
         setNewMessage(message);
         setNewTime(time);
     }, [isVisible]);
+
+    const handleSave = () => {
+        const errors = [];
+        if (newMessage.length < 10) errors.push('The message must contain 10 characters or more.');
+        if (!moment(newDate, 'DD/MM/YYYY', true).isValid())
+            errors.push('Date is incorrect. E.g.: 01/01/2022');
+        if (!moment(newTime, 'HH:mm', true).isValid())
+            errors.push('Time is incorrect. E.g.: 10:20');
+        errors.length > 0
+            ? error(errors)
+            : save({
+                  date: newDate,
+                  id,
+                  imageUrl: newImageUrl,
+                  message: newMessage,
+                  time: newTime,
+              });
+    };
+
+    const handleFileRead = async (event: any) => {
+        const file = event.target.files[0];
+        const base64 = await convertBase64(file);
+        setNewImageUrl(base64);
+    };
 
     return (
         <Container isVisible={isVisible}>
@@ -48,39 +71,48 @@ export const PostCardModal: FC<PostCardModalProps> = (props) => {
                         onChange={(v) => setNewMessage(v.target.value)}
                         maxLength={280}
                     />
-                    {newImageUrl && (
-                        <ImageHolder>
-                            <img src={newImageUrl} alt="post" />
-                        </ImageHolder>
-                    )}
+                    <ImageHolder>
+                        <img src={newImageUrl} alt="post" />
+                    </ImageHolder>
                 </Editor>
                 <Divider />
                 <Actions className="actions">
                     <Schedule>
                         <ScheduleItem>
-                            <Icon icon="image" />
+                            <InputWrapper>
+                                <Icon icon="image" />
+                                <input
+                                    type="file"
+                                    id="avatar"
+                                    name="avatar"
+                                    onChange={(e: any) => handleFileRead(e)}
+                                    accept="image/png, image/jpeg"
+                                />
+                            </InputWrapper>
                         </ScheduleItem>
                         <ScheduleItem>
                             <Icon icon="calendar" />
-                            <input
-                                placeholder="31/12/2025"
-                                value={newDate}
-                                onChange={(v) => setNewDate(v.target.value)}
+                            <Input
+                                change={(v) => setNewDate(v)}
+                                initialValue={newDate}
+                                mask="date"
                                 maxLength={10}
+                                placeholder="Date"
                             />
                         </ScheduleItem>
                         <ScheduleItem>
                             <Icon icon="clock" />
-                            <input
-                                placeholder="00:00"
-                                value={newTime}
-                                onChange={(v) => setNewTime(v.target.value)}
+                            <Input
+                                change={(v) => setNewTime(v)}
+                                initialValue={newTime}
+                                mask="time"
                                 maxLength={5}
+                                placeholder="Time"
                             />
                         </ScheduleItem>
                     </Schedule>
                     <Button
-                        click={() => save()}
+                        click={() => handleSave()}
                         icon="compose"
                         color="white"
                         backgroundColor="primary400"
@@ -94,7 +126,7 @@ export const PostCardModal: FC<PostCardModalProps> = (props) => {
                     customTitle="close"
                 />
             </Content>
-            <Overlay onClick={() => close()} title="close" />
+            <Overlay onClick={() => close()} />
         </Container>
     );
 };

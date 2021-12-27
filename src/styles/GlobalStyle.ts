@@ -109,8 +109,8 @@ export default createGlobalStyle`
             margin: 0 auto;
             max-width: ${views.desktop};
 
-            @media all and (${smDevices.min}) and (${mdDevices.max}) {
-                margin: 0 ${spacings.mobile};
+            @media all and (${smDevices.min}) and (${laptops.max}) {
+                margin: 0 auto;
                 max-width: ${views.mobile};
             }
         }

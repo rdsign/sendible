@@ -102,7 +102,44 @@ export const Schedule = styled.div`
 `;
 
 export const ScheduleItem = styled.div`
-    ${({ theme: { colors, motions, shadows } }) => css``}
+    ${({ theme: { colors, motions, shadows } }) => css`
+        align-items: center;
+        display: flex;
+        margin-right: 6rem;
+
+        svg {
+            fill: ${colors.primary400};
+            width: 3.5rem;
+        }
+
+        input {
+            color: ${colors.primary400};
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-left: 1rem;
+            text-decoration: underline;
+            width: 10rem;
+        }
+    `}
+`;
+
+export const InputWrapper = styled.div`
+    ${({ theme: { colors, motions, shadows } }) => css`
+        cursor: pointer;
+        overflow: hidden;
+        position: relative;
+
+        input[type='file'] {
+            cursor: pointer;
+            height: 100%;
+            left: 0;
+            margin: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+    `}
 `;
 
 export const CloseButton = styled(Button)`

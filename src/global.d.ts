@@ -9,7 +9,7 @@ declare module '*.svg' {
 type Icons = 'calendar' | 'clock' | 'close' | 'compose' | 'delete' | 'edit' | 'image';
 
 interface PostProps {
-    id: number;
+    id: string;
     message: string;
     imageUrl: string;
     date: string;

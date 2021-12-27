@@ -1,6 +1,6 @@
 export const cards = [
     {
-        id: 0,
+        id: 'c020fcff-11e3-480d-9a6d-6ebb5772dd0d',
         message:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam blandit lacus neque, id commodo erat porta id. Praesent vitae dolor metus. Phasellus sed dolor et purus dapibus pulvinar vel ac mauris. Sed at euismod massa, sit amet ultrices lorem. Nulla commodo a massa et luctus.',
         imageUrl:
@@ -9,7 +9,7 @@ export const cards = [
         time: '16:30',
     },
     {
-        id: 1,
+        id: '4e3b1750-6697-11ec-90d6-0242ac120003',
         message:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam blandit lacus neque, id commodo erat porta id. Praesent vitae dolor metus. Phasellus sed dolor et purus dapibus pulvinar vel ac mauris. Sed at euismod massa, sit amet ultrices lorem. Nulla commodo a massa et luctus.',
         imageUrl:
@@ -18,7 +18,7 @@ export const cards = [
         time: '10:30',
     },
     {
-        id: 2,
+        id: '55cdf1c2-6697-11ec-90d6-0242ac120003',
         message:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam blandit lacus neque, id commodo erat porta id. Praesent vitae dolor metus. Phasellus sed dolor et purus dapibus pulvinar vel ac mauris. Sed at euismod massa, sit amet ultrices lorem. Nulla commodo a massa et luctus.',
         imageUrl:
@@ -27,7 +27,7 @@ export const cards = [
         time: '12:30',
     },
     {
-        id: 3,
+        id: '5a893e88-6697-11ec-90d6-0242ac120003',
         message:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam blandit lacus neque, id commodo erat porta id. Praesent vitae dolor metus. Phasellus sed dolor et purus dapibus pulvinar vel ac mauris. Sed at euismod massa, sit amet ultrices lorem. Nulla commodo a massa et luctus.',
         imageUrl:
@@ -36,7 +36,7 @@ export const cards = [
         time: '17:15',
     },
     {
-        id: 4,
+        id: '5e7eea74-6697-11ec-90d6-0242ac120003',
         message:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam blandit lacus neque, id commodo erat porta id. Praesent vitae dolor metus. Phasellus sed dolor et purus dapibus pulvinar vel ac mauris. Sed at euismod massa, sit amet ultrices lorem. Nulla commodo a massa et luctus.',
         imageUrl:
@@ -45,7 +45,7 @@ export const cards = [
         time: '22:10',
     },
     {
-        id: 5,
+        id: '62adde16-6697-11ec-90d6-0242ac120003',
         message:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam blandit lacus neque, id commodo erat porta id. Praesent vitae dolor metus. Phasellus sed dolor et purus dapibus pulvinar vel ac mauris. Sed at euismod massa, sit amet ultrices lorem. Nulla commodo a massa et luctus.',
         imageUrl:

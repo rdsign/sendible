@@ -44,11 +44,11 @@ export const theme = {
         large: '0 1.6rem 4.8rem rgba(0, 0, 0, 0.07)',
     },
     spacings: {
-        mobile: '2rem',
+        mobile: '3rem',
     },
     views: {
         desktop: '70%',
-        mobile: '100%',
+        mobile: '90%',
     },
     zIndexes: {
         bellow: -1,
