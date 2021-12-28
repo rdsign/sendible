@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { ReactSVG } from 'react-svg';
+import { SVGMockup } from './SVGMockup';
 
 interface IconProps {
     icon: Icons;
@@ -8,7 +9,7 @@ interface IconProps {
 export const Icon: FC<IconProps> = (props) => {
     const { icon } = props;
 
-    return (
+    const SVG = () => (
         <ReactSVG
             src={`assets/svgs/icon_${icon}.svg`}
             wrapper="svg"
@@ -17,4 +18,6 @@ export const Icon: FC<IconProps> = (props) => {
             viewBox="0 0 40 40"
         />
     );
+
+    return process.env.NODE_ENV !== 'test' ? <SVG /> : <SVGMockup />;
 };

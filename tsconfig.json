@@ -21,7 +21,8 @@
             "pages/*": ["./pages/*"],
             "styles/*": ["./styles/*"],
             "utils/*": ["./utils/*"]
-        }
+        },
+        "types": ["jest", "node", "@testing-library/jest-dom"]
     },
     "include": ["src/**/*"],
     "exclude": ["node_modules"]

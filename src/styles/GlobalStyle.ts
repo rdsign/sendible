@@ -146,14 +146,14 @@ export default createGlobalStyle`
         /* uhd */
         @media all and (${uhd.min}) {
             html {
-                font-size: calc(((1vw + 1vw) / 10) + 10px);
+                font-size: calc(((1vw + 1vw) / 12) + 10px);
             }
         }
 
         /* qhd */
         @media all and (${qhd.min}) and (${qhd.max}) {
             html {
-                font-size: calc(((1vw + 1vw) / 13) + 9px);
+                font-size: calc(((1vw + 1vw) / 14) + 8px);
             }
         }
 

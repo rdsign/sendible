@@ -1,11 +1,18 @@
 import { FC, useEffect, useState } from 'react';
 import { Feedback, PostCard, PostCardModal, TitleBar } from 'components';
-import { cards, generateId, mockupImage } from 'utils';
+import { cards, generateId, mockupImage, parseDate, parseTime } from 'utils';
 import { FixedButton, PostCardList, Section } from './index.styles';
 
 export const Home: FC = () => {
+    const sortPosts = (array: PostProps[]): PostProps[] => {
+        return array.sort(
+            (a, b) =>
+                parseDate(a.date) + parseTime(a.time) - (parseDate(b.date) + parseTime(b.time)),
+        );
+    };
+
     const [showCompose, setShowCompose] = useState<boolean>(false);
-    const [postCards, setPostCarts] = useState<PostProps[]>(cards);
+    const [postCards, setPostCards] = useState<PostProps[]>(sortPosts(cards));
     const [currentCard, setCurrentCard] = useState<PostProps | null>(null);
     const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
     const [errors, setErrors] = useState<string[]>([]);
@@ -41,7 +48,7 @@ export const Home: FC = () => {
         const newPostCardList = [...postCards];
         const index = newPostCardList.map((i) => i.id).indexOf(id);
         newPostCardList.splice(index, 1);
-        setPostCarts(newPostCardList);
+        setPostCards(sortPosts(newPostCardList));
     };
 
     const handleEdit = (post: PostProps) => {
@@ -65,7 +72,7 @@ export const Home: FC = () => {
         } else {
             newPostCardList[index] = post;
         }
-        setPostCarts(newPostCardList);
+        setPostCards(sortPosts(newPostCardList));
     };
 
     const postCardList = postCards.map((c) => (

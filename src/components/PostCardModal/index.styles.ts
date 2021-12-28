@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { Button } from 'components';
 
 interface ContainerProps {
     isVisible: boolean;
@@ -43,10 +42,26 @@ export const Content = styled.div`
         position: relative;
         width: 100%;
 
+        .close-button {
+            padding: 3rem;
+            position: absolute;
+            right: 3rem;
+            top: 3rem;
+        }
+
         @media all and (${smDevices.min}) and (${smDevices.max}) {
             margin: 0;
             min-width: 100vw;
             padding: 3rem 0 0;
+
+            .close-button {
+                right: 0;
+                top: -5.5rem;
+
+                svg {
+                    fill: white;
+                }
+            }
         }
     `}
 `;
@@ -242,28 +257,6 @@ export const InputWrapper = styled.div`
         top: 0;
         width: 100%;
     }
-`;
-
-export const CloseButton = styled(Button)`
-    ${({
-        theme: {
-            breakpoints: { smDevices },
-        },
-    }) => css`
-        padding: 3rem;
-        position: absolute;
-        right: 3rem;
-        top: 3rem;
-
-        @media all and (${smDevices.min}) and (${smDevices.max}) {
-            right: 0;
-            top: -5.5rem;
-
-            svg {
-                fill: white;
-            }
-        }
-    `}
 `;
 
 export const Overlay = styled.div`

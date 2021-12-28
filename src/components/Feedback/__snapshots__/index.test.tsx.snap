@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Feedback should match snapshot 1`] = `
+.c0 {
+  background: #ff6153;
+  border-radius: 0.8rem;
+  color: #ffffff;
+  font-size: 1.6rem;
+  left: 50%;
+  line-height: 1.66em;
+  padding: 2rem 3rem;
+  position: fixed;
+  top: -30rem;
+  -webkit-transform: translate(-50%,0);
+  -ms-transform: translate(-50%,0);
+  transform: translate(-50%,0);
+  -webkit-transition: all 1s cubic-bezier(0.23,1,0.32,1);
+  transition: all 1s cubic-bezier(0.23,1,0.32,1);
+  visibility: hidden;
+  z-index: 100;
+  -webkit-animation: appear 8s ease-in-out;
+  animation: appear 8s ease-in-out;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  visibility: visible;
+}
+
+<div
+  className="c0"
+  data-testid="feedback"
+>
+  <p>
+    • 
+    message one
+  </p>
+  <p>
+    • 
+    message two
+  </p>
+</div>
+`;

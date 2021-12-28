@@ -4,6 +4,7 @@ import { Container } from './index.styles';
 
 export interface ButtonProps {
     backgroundColor?: 'gray800' | 'primary400' | 'white';
+    className?: string;
     color?: 'gray800' | 'primary400' | 'white';
     customTitle?: string;
     icon: Icons;
@@ -12,10 +13,16 @@ export interface ButtonProps {
 }
 
 export const Button: FC<ButtonProps> = (props) => {
-    const { click, customTitle, icon, label } = props;
+    const { click, className, customTitle, icon, label } = props;
 
     return (
-        <Container {...props} type="button" title={customTitle} onClick={() => click()}>
+        <Container
+            {...props}
+            className={className}
+            type="button"
+            title={customTitle}
+            onClick={() => click()}
+        >
             {icon && <Icon icon={icon} />}
             {label && label}
         </Container>

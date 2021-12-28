@@ -36,10 +36,12 @@
             }
         ],
         "import/no-dynamic-require": "off",
-        "no-unused-expressions": "off",
+        "import/no-extraneous-dependencies": "off",
         "import/prefer-default-export": "off",
-        "no-extend-native": "off",
         "no-use-before-define": "off",
+        "no-unused-expressions": "off",
+        "no-extend-native": "off",
+        "radix": "off",
         "react/jsx-filename-extension": [
             "warn",
             {

@@ -11,5 +11,9 @@ export const Feedback: FC<FeedbackProps> = (props) => {
 
     const feedbackList = messages.map((m: string) => <p key={generateId()}>• {m}</p>);
 
-    return <Container isVisible={messages.length > 0}>{feedbackList}</Container>;
+    return (
+        <Container isVisible={messages.length > 0} data-testid="feedback">
+            {feedbackList}
+        </Container>
+    );
 };

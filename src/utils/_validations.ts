@@ -1,20 +1,20 @@
-export const validateDate = (date: string, time: string) => {
-    const dt = new Date();
-    const currentDate = dt.toLocaleDateString('en-GB').split('/').join('');
-    const currentTime = dt.getHours();
-    const currentMinutes = dt.getMinutes();
+export const parseDate = (date: string): number => {
+    const raw = date.split('/');
+    return new Date(parseInt(raw[2], 10), parseInt(raw[1], 10) - 1, parseInt(raw[0]), 10).getTime();
+};
 
-    const incoming = parseInt(`${date.split('/').join('')}${time.split(':').join('')}`, 10);
-    const current = parseInt(`${currentDate}${currentTime}${currentMinutes}`, 10);
+export const parseTime = (time: string): number => {
+    return parseInt(time.split(':').join(''), 10);
+};
+
+export const validateDate = (date: string, time: string): boolean => {
+    const ndt = new Date();
+    const newTime = ndt.getHours();
+    const newMinutes = String(ndt.getMinutes()).padStart(2, '0');
+
+    const incoming = parseDate(date) + parseTime(time);
+    const current =
+        parseDate(ndt.toLocaleDateString('en-GB')) + parseInt(`${newTime}${newMinutes}`, 10);
 
     return incoming > current;
 };
-
-// export const validateTime = (time: string) => {
-//     const date = new Date();
-//     const currentDate = date.toLocaleDateString('en-GB');
-//     const currentTime = date.getHours();
-//     const currentMinutes = date.getMinutes();
-
-//     console.log(currentDate, currentTime, currentMinutes);
-// };

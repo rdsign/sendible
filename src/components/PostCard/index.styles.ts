@@ -153,6 +153,7 @@ export const Bg = styled.div`
         opacity: 0;
         position: absolute;
         transition: all 1s ${motions.cubic};
+        user-select: none;
         width: 100%;
 
         @keyframes spawn {

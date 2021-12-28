@@ -4,7 +4,6 @@ import { convertBase64, validateDate } from 'utils';
 import { Button, Icon, Input } from 'components';
 import {
     Actions,
-    CloseButton,
     Container,
     Content,
     Divider,
@@ -123,14 +122,15 @@ export const PostCardModal: FC<PostCardModalProps> = (props) => {
                         label="Save"
                     />
                 </Actions>
-                <CloseButton
+                <Button
+                    className="close-button"
                     click={() => close()}
                     icon="close"
                     color="gray800"
                     customTitle="close"
                 />
             </Content>
-            <Overlay onClick={() => close()} />
+            <Overlay data-testid="overlay" onClick={() => close()} />
         </Container>
     );
 };
